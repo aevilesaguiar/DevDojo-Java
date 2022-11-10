@@ -1,4 +1,5 @@
-# Dev Dojo Maratona Java - William Suane
+# Dev Dojo Maratona Java - William Suane - Apontamentos de aula
+
 
 ## Como Java Funciona
 
@@ -479,10 +480,158 @@ entidades do tipo A
 
 ![](.README_images/a5830dc6.png)
 
+## Herança
 
+![](.README_images/a44c2ba3.png)
+
+Herança multipla não existe no java.
+
+quando utilizamos super(), estamos nos refererindo ao objeto mais genérico, a super classe.
+
+quando usamos this, ele precisa ser a primeira linha dentro do construtor.
+
+Todas as classes em java são filhas da classe Object.
+
+
+- modificadores de acesso
+![](.README_images/70bc7ae5.png)
+
+![](.README_images/440cf5e0.png)
+
+
+Nota: todas os objetos que trabalhamos, são objetos por que elas se estendem, elas são um Object.
+Independente de criar métodos dentro da classe, eu tenho métodos que pertencem a classe Object.
+
+- Sobrescrita
+
+Regras para seguir quando está sobrescrevendo:
+
+1. o nome precisa ser exatamente o mesmo
+2. A quantidade de parametro precisa ser exatamente o memso independente se você tem ou não tem.
+3. O tipo de retorno tem que ser a classe ou alguma subclasse(covariancia de retorno)
+4. O modificador de acesso não pode ser restritivo, ou seja public
+
+
+ToString é um método da classe Object que pode ser sobrescrito em nossas classes por causa da regra da Herança.
+
+Para ter certeza que estamos sobrescrevendo usamos : @Override
+
+        @Override
+        public String toString() {
+                return "Anime{" +
+                "nome='" + nome + '\'' +
+                '}';
+        }
+
+
+## Modificador final
+
+Comportamento quando trabalhamos com tipos primitivos:
+
+- Utilize na declaração de atributos quando você quiser que o valor deles não seja alterado, ou seja, quando quiser criar constantes.
+modificador final é uma palavra reservada;
+Devem ser escritas em letras maiusculas;
+Geralmente são vistos mais atributos primitivos como static final;
+E quando você define um atributo final static você precisa inicializar ou através do constructor;
+Podemos inicializar através do bloco de inicialização e também do atributo;
+Geralmente vem acompanhadas do modificador static
+devido o static são acessadas através da classe
+eX:  private final static double VELOCIDADELIMITE = 250;
+
+Comportamento quando trabalhamos com Objetos:
+
+Ex:private final Comprador COMPRADOR = new Comprador();
+
+No exemplo acima estamos dizendo que a referencia que a variavel COMPRADOR tem para esse objeto new Comprador(),
+nunca poderá ser alterada, porém os dados podem ser alterados,a referencia é imutável, 
+uma vez que você associa um objeto a ela nunca mais poderá ser alterado.
+
+![](.README_images/14a58bef.png)
+
+Modificador final o comprtamento dele quando utilizamos para classes e métodos.
+
+O modificador final quando aplicado para classes e métodos está lidando diretamente com herança.
+
+- Utilize na declaração de métodos quando quiser impedir que um método seja sobrescrito por uma subclasse.
+
+'imprime()' cannot override 'imprime()'
+
+ - Utilize na declaração de classe quando quiser impedir que a classe seja estendida.
+
+-> Cannot inherit from final
+
+    public final class Carro {
+
+    private String nome;
+    public final static double VELOCIDADELIMITE = 250;
+    public final Comprador COMPRADOR = new Comprador();
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    } 
+ 
+
+Exemplo de Classe static: String.
+
+
+## Singleton pattern
+
+o padrão singleton é um padrão de projeto de software que restringe a instanciação de uma classe a uma instância singular. 
+Um dos bem conhecidos padrões de projeto "Gang of Four" , que descrevem como resolver problemas recorrentes em software 
+orientado a objetos , o padrão é útil quando exatamente um objeto é necessário para coordenar ações em um sistema.
+
+Mais especificamente, o padrão singleton permite que os objetos:  
+
+Certifique-se de que eles tenham apenas uma instância
+Forneça acesso fácil a essa instância
+Controlar sua instanciação (por exemplo, ocultando os construtores de uma classe )
+
+Os singletons geralmente são preferidos às variáveis Globais porque não poluem o namespace global (ou o namespace que o 
+contém). Além disso, eles permitem alocação e inicialização lentas, enquanto variáveis globais em muitas linguagens 
+sempre consumirão recursos.
+As implementações do padrão singleton garantem que apenas uma instância da classe singleton exista e normalmente fornecem 
+acesso global a essa instância.
+
+No java uma das formas de se atingir isso é através do modificador final. 
+
+
+## Enumeração
+
+Enum é uma especialização da linguagem para representar um número fixo de valores previamente conhecidos. 
+Por exemplo, os nomes dos dias de uma semana, os nomes dos meses que compõem um ano, os nomes dos presidentes da república, etc.
+
+Tornam o código mais explícito, mais legível, e menos vulnerável a erros de programação.
+
+Enumerações em Java podem ser declaradas dentro ou fora de uma classe. A única restrição à sua declaração é que ela não 
+pode ser declarada dentro de um método, pois um método geralmente não possui um escopo tão grande de classe.
+
+
+- Vários métodos da classe JAVA Enum
+Para poder usar os métodos mencionados abaixo, será necessário importar o pacote java.lang.Enum.
+
+1. valores () – Este método retorna o valor de todas as constantes que encapsulam o JAVA Enum.
+2. ordinal() – O método ordinal() retorna o número de índice de cada enum como se os enums fossem 
+3. estruturas de dados como arrays. É usado para estabelecer uma hierarquia de tipos.
+4. valueOf () – Se existir, esse método retornará a constante de enumeração de um valor de string.
+
+- Diferença entre uma classe e JAVA Enum
+
+Embora o Java Enum, assim como uma classe possa ter métodos e variáveis, os membros enum devem ser públicos, 
+estáticos e finais. Nas classes, os usuários têm a liberdade de manter o escopo dos membros flexível.
+
+De forma geral um enum é um tipo especial de classe onde você vai definir atributos que representam a enumeração no nosso
+exemplo PESSOA_FISICA, PESSOA_JURÍDICA, esses atributos não podem ser alterados, para se criar uma enumeração você usa
+public enum ao invés de public class no caso da classe, e podemos trabalhar com construtores e atributos. Enumração
+pode ficar dentro da própria classe, 
 
 ## Referencias
 
 - https://www.devmedia.com.br/construtores-em-java-primeiros-passos/28618
 - https://sites.google.com/view/javacommiza/home/capitulo-01/criando-objetos/blocos-inicializadores-de-instancia
 - https://www.devmedia.com.br/modificadores-de-acesso-do-java/27065
+- https://en.wikipedia.org/wiki/Singleton_pattern
