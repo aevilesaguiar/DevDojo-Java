@@ -649,9 +649,60 @@ Não podemos ter multipla herança de classe com java, porém você pode ter uma
 um método abstrato e Funcionario extender pessoas, se eu implementar o método abstrato em Funcionário, eu não preciso
 implementar nos outros métodos devido a herança, todos os outros terão acesso.
 
+
+## Interfaces 
+
+A interface é um recurso muito utilizado em Java, bem como na maioria das linguagens orientadas a objeto, para “obrigar” 
+a um determinado grupo de classes a ter métodos ou propriedades em comum para existir em um determinado contexto, contudo 
+os métodos podem ser implementados em cada classe de uma maneira diferente. Pode-se dizer, a grosso modo, que uma 
+interface é um contrato que quando assumido por uma classe deve ser implementado.
+
+Dentro das interfaces existem somente assinaturas de métodos e propriedades, cabendo à classe que a utilizará realizar a
+implementação das assinaturas, dando comportamentos práticos aos métodos.
+
+Ao contrário da herança que limita uma classe a herdar somente uma classe pai por vez, é possível que uma classe implemente 
+varias interfaces ao mesmo tempo.
+
+Por fim, interface nada mais que uma espécie de contrato de regras que uma classes deve seguir em um determinado contexto. 
+Como em Java não existe herança múltipla, a interface passa a ser uma alternativa.
+
+Interfaces em java são todas abstratas e publicas.
+
+sintaxe:
+public interface Nome{
+}
+
+Não existe limite para implementar interfaces.
+
+No java 8 foi disponibilizado a interface que ela tenha métodos com implementação. 
+A inserção do default é o que diz que um método tem implementação, ou seja métodos concretos com funcionalidades.
+
+Ex:
+default void checkPermission(){
+System.out.println("Fazendo checagens de permissão.");
+}
+
+Não podemos criar objetos de interface.  
+
+O modificadorers de acesso private -> default->protected-> public, 
+Se você criar um método publico qualquer um dos pacotes private -> default->protected-> será mais restritivo, a sobrescrita
+te força a ter um método publico, se por acaso em uma classe abstrata você colocar ou protected ou default por exemplo
+você pode sobrescrever com protected ou public nunca private.
+
+Podemos declarar atributos em uma interface. E por padrão todos os atributos são constantes.
+
+Ex:     public static final int MAX_DATA_SIZE=10;
+
+E a partir do java 8 foi possivel adicionar métodos estáticos, métodos estáticos nunca serão sobrescritos por que eles 
+pertencem a classe.
+
+
+
+
 ## Referencias
 
 - https://www.devmedia.com.br/construtores-em-java-primeiros-passos/28618
 - https://sites.google.com/view/javacommiza/home/capitulo-01/criando-objetos/blocos-inicializadores-de-instancia
 - https://www.devmedia.com.br/modificadores-de-acesso-do-java/27065
 - https://en.wikipedia.org/wiki/Singleton_pattern
+- https://www.devmedia.com.br/entendendo-interfaces-em-java/25502
