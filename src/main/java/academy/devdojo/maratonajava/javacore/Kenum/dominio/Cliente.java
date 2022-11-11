@@ -1,12 +1,10 @@
 package academy.devdojo.maratonajava.javacore.Kenum.dominio;
 
 import academy.devdojo.maratonajava.javacore.Kenum.dominio.enums.TipoCliente;
+import academy.devdojo.maratonajava.javacore.Kenum.dominio.enums.TipoPagamento;
 
 public class Cliente {
 
-    public enum TipoPagamento{
-        DEBITO,CREDITO;
-    }
     private String nome;
 
     private TipoCliente tipoCliente;

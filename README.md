@@ -629,6 +629,26 @@ exemplo PESSOA_FISICA, PESSOA_JURÍDICA, esses atributos não podem ser alterado
 public enum ao invés de public class no caso da classe, e podemos trabalhar com construtores e atributos. Enumração
 pode ficar dentro da própria classe, 
 
+## Classes Abstratas
+
+Em Java, temos um tipo especial de classe chamado classe abstrata. Este tipo de classe possui uma característica muito 
+específica, que é o de não permitir que novos objetos sejam instanciados a partir desta classe. Por este motivo, as 
+classes abstratas possuem o único propósito de servirem como super classes a outras classes do Java.
+
+Classe abstratas foram criadas para resolver um problema de designer, de desenho de código. 
+
+Ex: Funcionario seria um template, é abstrato e cargo seria a implementação de funcionario.
+ 
+A classe abstrata não pode ser instanciada.
+O método abstrato não pode ter corpo;
+todos os métodos abstrataos precisam ser implementados, é um contrato.
+Nunca posso ter um método abstract numa classe não abstrata dá erro. 
+Classes abstratas podem ter métodos concretos e abstratos.
+
+Não podemos ter multipla herança de classe com java, porém você pode ter uma hierarquia maior. se eu criar uma classe por exemplo pessoa que tenha
+um método abstrato e Funcionario extender pessoas, se eu implementar o método abstrato em Funcionário, eu não preciso
+implementar nos outros métodos devido a herança, todos os outros terão acesso.
+
 ## Referencias
 
 - https://www.devmedia.com.br/construtores-em-java-primeiros-passos/28618
