@@ -696,7 +696,121 @@ Ex:     public static final int MAX_DATA_SIZE=10;
 E a partir do java 8 foi possivel adicionar métodos estáticos, métodos estáticos nunca serão sobrescritos por que eles 
 pertencem a classe.
 
+## Polimorfismo
 
+Em relação ao polimorfismo, o principal conceito é a propriedade de duas ou mais classes derivadas de uma mesma superclasse 
+responderem a mesma mensagem, cada uma de uma forma diferente. Ocorre quando uma subclasse redefine um método existente na 
+superclasse, ou seja, quando temos os métodos sobrescritos (overriding)
+
+
+![](.README_images/8b6a31c5.png)
+
+Recapitulando: o principal conceito do polimorfismo é a propriedade de duas ou mais classes derivadas (Macaco, Homem e Baleia) 
+de uma mesma superclasse (Mamifero) responderem a mesma mensagem (locomoverSe()), cada uma de uma forma diferente (pulando de 
+galho em galho, andando e nadando, respectivamente).
+
+## Cast e instanceof
+
+O operador instanceof em Java é usado para verificar se um objeto pertence a um determinado tipo ou não em tempo de execução. 
+Também é uma palavra-chave integrada na linguagem de programação Java e é usada principalmente para evitar ClassCastException em Java . 
+É usado como uma verificação de segurança antes de lançar qualquer objeto em um determinado tipo. Este operador tem uma
+forma de object instanceof Type e devolve true se o objecto satisfizer a relação IS-A com o Type ie o objecto é uma 
+instância da classe Type ou objectéa instância de uma classe que estende Type ou object é uma instância de uma classe 
+que implementa a interface Type.
+
+Uma vez que um objeto passou na verificação instanceof, é seguro fazer a conversão de tipo nesse tipo, sem se preocupar 
+com java.lang.ClassCastException .
+
+
+ClassCastException é uma exceção de tempo de execução gerada em Java quando tentamos converter incorretamente uma classe 
+de um tipo para outro . Ele é lançado para indicar que o código tentou converter um objeto em uma classe relacionada, mas 
+da qual não é uma instância.
+
+
+## Exceção
+
+
+Exceções são condições anormais de seu programa, 
+Exceções (do inglês Exception, acrônimo de Exceptional events) são objetos que sinalizam que ocorreu algum problema no 
+tempo de execução de um programa.
+
+No caso de uma exceção acontecer e não ser tratada, o programa irá terminar com uma mensagem de erro. O tratamento 
+de exceções (exception handling) permite ao programador capturar exceções e tratá-las sem interromper o fluxo normal de 
+execução do programa.
+
+Throwable é a mãe de todas as exceções em java. Throwable significa lançável.
+Error são situações que não tem como você se recuperar, geralmente é impossivel de se recuperar em tempo de execução.
+
+Nós temos exceções Checked e unchecked. 
+
+- Exceções checadas(Checked ): são exceções que são filhas de exception diretamente, e se essas exceções não forem tratadas 
+elas vão lançar um erro em tempo de compilação, você não consegue compilar seu código.
+
+Se você estiver trabalhando com arquivo e fizer alguma coisa relacionada a arquivo ele lança o IOException(possiveis exceções de
+entrada e saída)
+
+As exceções Checked precisam é obrigado tratar, se vc não fizer o tratamento ela não compila.
+
+- Exceções não checadas(unchecked): são exceções que são runtime ou filhas de RuntimeException , são exceções que quando 
+lançada pelo o programa quase 100% das vezes o programa é o seu código, ou que você não fez uma tratativa coreta.
+Ex: se você quiser formatar um numero e o numero é um caracter literal uma letra você vai ter um NumberFormatException,
+Se você faz um cast de um objeto que não pode você recebe um ClassCastException.
+Se você tentar acessar um objeto que não existe vai dar um NullPointerException.
+Se você tentar acessar uma lista que não existe vai dar um IndexOutOfBoundsException.
+Essas exceções quando são lançadas geralmente seu código deve ser melhorado
+
+As exceções Unchecked não é necessário fazer o tratamento, e nós podemos criar as nossas pr´oprioas exceções unchecked.
+
+
+
+
+![](../../Users/aesilva/AppData/Local/Temp/Excecoes_Java2.jpg)
+![](.README_images/03f3e618.png)
+As exceções RunTimeException são exceções que o desenvovedor deveria ter tratado
+
+RECAPITULANDO:
+
+Runtime Exception é uma exceção;
+Error não é uma exceção, por que não é filha de Exception;
+Error é um Throwable e Exception também é um Throwable.
+Runtime também é um throwable.
+Runtime é uma exceção unchecked e você não necessariamente precisa fazer validação para o seu código compilar.
+
+Quando estiver trabalhando com exceção unchecked é importante usar as exceções específicas, para que quando alguém
+estiver utilizando o meu código ele saberá o que está acontecendo.
+
+Sempre que estiver fazendo diversos tipos de método, por exemplo para idade, e não quiser colocar uma idade negativa ou
+acima de 150 anos , esse tipo de coisa tratamos com exceções, sempre que quiser fazer uma validação, lançamos uma exceção.
+
+
+O throws é usado para disparar uma exception, enquanto o try/catch é usado para tratar uma exception. 
+Quando colocamos o throw na assinatura estamos falando que sabemos que nosso código pode gerar uma exception mas naquele 
+momento não estamos interessados em tratar ela e quem for usar o nosso método será responsável de fazer o tratamento.
+
+Para Exceções, são 3 opções:
+
+1 - try/catch: uso quando não quero que a exceção se perpetue pelo código, pois não vou usar aquele "problema" em nenhum 
+outro lugar.
+
+2 - throws: quando quero passar a possível exceção do método que estou para outras classes, quando o tratamento não é 
+necessário naquela classe pois vou precisar da exceção em outra classe.
+
+3 - throw: quando eu quero lançar uma exceção/quando quero que aquele método especifico de um erro(exceção)
+
+Resumidamente as exceções Checked são aquelas no qual você é obrigado a tratá-la, seja com um bloco try-catch ou mesmo 
+com um throws (relançando a mesma para outro local). Por outro lado, quando você tem exceções do tipo Unchecked não é 
+obrigatório o tratamento da mesma, você pode tratar apenas se quiser, se sentir que é necessário para o bom funcionamento 
+da sua aplicação. Checked exceptions são utilizadas para erros recuperáveis enquanto que Unchecked exceptions são 
+utilizadas para erros irrecuperáveis. Significa dizer que quando você sabe que seu erro pode ser tratado, 
+você utiliza Checked Exceptions, caso contrário utilize Unchecked Exceptions.
+
+
+![](../../Users/aesilva/AppData/Local/Temp/2020-05-14-java-excecoes.png)
+
+A princípio, todas as classes filhas de Exception são do tipo checked, exceto pelas subclasses de
+java.lang.RuntimeException (exceção em tempo de execução).
+
+Quando  utilizar try/catch ou throws
 
 
 ## Referencias
@@ -706,3 +820,5 @@ pertencem a classe.
 - https://www.devmedia.com.br/modificadores-de-acesso-do-java/27065
 - https://en.wikipedia.org/wiki/Singleton_pattern
 - https://www.devmedia.com.br/entendendo-interfaces-em-java/25502
+- https://blog.grancursosonline.com.br/poo-principal-conceito-de-polimorfismo/#:~:text=Em%20rela%C3%A7%C3%A3o%20ao%20polimorfismo%2C%20o,os%20m%C3%A9todos%20sobrescritos%20(overriding).
+- https://javarevisited.blogspot.com/2015/12/10-points-about-instanceof-operator-in-java-example.html#axzz7kcFpEWq1
