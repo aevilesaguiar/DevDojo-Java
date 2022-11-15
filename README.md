@@ -894,9 +894,154 @@ está declarando, por que a funcionalidade da sobrescrita pode ser diferente e n
 e trtá-la.
 - Você não pode declarar nenhuma exceção do tipo cheched que não foi declarada no método original.
 
+## Classes Wrappers em Java
+
+Os Wrapper são conhecidos na linguagem Java como classes especiais que possuem métodos capazes de fazer conversões em 
+variáveis primitivas e também de encapsular tipos primitivos para serem trabalhados como objetos, ou seja, é feita um 
+embrulho de streams que são fluxo de dados através de canais. As classes Wrappers encapsulam os tipos primitivos
+e transformam em objeto.
+
+Um dos motivos para se criar as classes Wrappers em java é você passar os parâmetros, os valores numericos por referencia,
+não mais por valor, outro motivo é devido a estrutura de dados do pacote de coleções eles não trabalham com tipos
+primitivos. Colleções nós guardamos referencias. Threads também usam a classe Wrapper.
+
+Sendo assim, existe uma classe Wrapper para cada tipo primitivo identificado pelo mesmo nome do tipo que possui e tendo 
+a primeira letra maiúscula. Essa regra de declaração é aplicada a todos os tipos, exceto aos que são char classificados 
+como Character e boolean como Boolean.
+
+![](../../Users/aesilva/AppData/Local/Temp/WrappersClass01.jpg)
+
+De acordo com a hierarquia mostrada na Figura 1, cada tipo wrapper numérico em Java são subclasses da superclasse 
+abstrataNumber (Java.lang.Number) que consegue acessar todos os métodos values que são: doubleValue(), floatValue(), 
+longValue(), intValue(), shortValue() e byteValue().
+
+![](.README_images/bcd661ec.png)
+
+As boas práticas dizem que se você puder criar tudo no tipo primitivo, o faça de tipo primitivo, e utilizar Wrapper conforme
+a situação.
+
+## Autoboxing e Unboxing
+
+Autoboxing é a conversão automática que o compilador Java faz entre os tipos primitivos e suas classes de wrapper de 
+objeto correspondentes. Por exemplo, converter um int em um Integer , um double em um Double e assim por diante. 
+Se a conversão for para o outro lado, isso é chamado de unboxing .
 
 
-## Referencias
+Converter um valor primitivo (um int , por exemplo) em um objeto da classe wrapper correspondente ( Integer ) é 
+chamado de autoboxing. O compilador Java aplica autoboxing quando um valor primitivo é:
+
+- Passado como parâmetro para um método que espera um objeto da classe wrapper correspondente.
+- Atribuído a uma variável da classe wrapper correspondente.
+
+Como os operadores de resto ( % ) e unário de mais ( += ) não se aplicam a objetos Integer , você pode se perguntar 
+por que o compilador Java compila o método sem emitir nenhum erro. O compilador não gera um erro porque invoca o 
+método intValue para converter um Integer em um int em tempo de execução:
+
+A conversão de um objeto do tipo wrapper ( Integer ) em seu valor primitivo ( int ) correspondente é chamado de unboxing. 
+O compilador Java aplica unboxing quando um objeto de uma classe wrapper é:
+
+Passado como parâmetro para um método que espera um valor do tipo primitivo correspondente.
+Atribuído a uma variável do tipo primitivo correspondente.
+
+Autoboxing e unboxing permitem que os desenvolvedores escrevam códigos mais limpos, facilitando a leitura.
+
+## String
+
+A classe String representa cadeias de caracteres. Todos os literais de string em programas Java, como "abc", 
+são implementados como instâncias dessa classe.
+
+Strings são constantes; seus valores não podem ser alterados depois de criados. 
+Os buffers de string suportam strings mutáveis. 
+Como os objetos String são imutáveis, eles podem ser compartilhados. Por exemplo:
+
+     String str = "abc";
+
+é equivalente a:
+
+     char dados[] = {'a', 'b', 'c'};
+     String str = new String(dados);
+
+Aqui estão mais alguns exemplos de como as strings podem ser usadas:
+
+     System.out.println("abc");
+     String cd = "cd";
+     System.out.println("abc" + cde);
+     String c = "abc".substring(2,3);
+     String d = cde.substring(1, 2);
+
+String são imutáveis. Ou seja, qualquer mudança em uma String causa a criação de um novo objeto String.
+
+A classe String inclui métodos para examinar caracteres individuais da sequência, comparar strings, pesquisar strings, 
+extrair substrings e criar uma cópia de uma string com todos os caracteres traduzidos para maiúsculas ou minúsculas.
+
+A linguagem Java fornece suporte especial para o operador de concatenação de strings ( + ) e para a conversão de outros 
+objetos em strings. A concatenação de strings é implementada por meio da classe String Builder(ou StringBuffer) e seu dmétodo 
+appen.As conversões de strings são implementadas por meio do método toString, definido Objecte herdado por todas as classes em Java.
+
+Salvo indicação em contrário, passar um argumento nulo para um construtor ou método nessa classe fará com que 
+NullPointerExceptiona seja lançada.
+
+* Basicamente, string é uma sequência de caracteres, mas não é um tipo primitivo.
+* Quando criamos uma string em java, na verdade ela cria um objeto do tipo String.
+* String é um objeto imutável, o que significa que não pode ser alterado depois de criado.
+* String é a única classe em que a sobrecarga de operadores é suportada em java. Podemos concatenar duas strings usando o 
+operador +. Por exemplo "a"+"b"="ab".
+* Java fornece duas classes úteis para manipulação de String - StringBuffer e StringBuilder .
+
+  - Diferentes Maneiras de Criar String
+
+    Usando literais de string
+    Esta é a maneira mais comum de criar string. Nesse caso, um literal de string é colocado entre aspas duplas.
+
+         String str = "abc";//forma mais indicada de criar string
+      
+    Usando new palavra-chave
+
+    Podemos criar o objeto String usando o operador new, assim como qualquer classe java normal. 
+    Existem vários construtores disponíveis na classe String para obter String de char array, byte array, StringBuffer e StringBuilder.
+        
+          String str  =  new String("abc");// não é muito indicado.
+          char[] a = {'a', 'b', 'c'};
+          String str2  =  new String(a);// não é muito indicado.
+
+## Java String compare
+
+A classe String fornece métodos equals()e equalsIgnoreCase() para comparar duas strings.
+Esses métodos comparam o valor de string para verificar se duas strings são iguais ou não.
+Ele retorna true se duas strings são iguais e false se não.
+
+A classe String implementa a interface Comparable , que fornece métodos e compara duas strings lexicograficamente compareTo(). 
+compareToIgnoreCase()Ambas as strings são convertidas em valor Unicode para comparação e retornam um valor inteiro que pode 
+ser maior, menor ou igual a zero. Se as strings forem iguais, ele retornará zero ou então retornará maior ou menor que zero.
+
+
+## Métodos de String Java
+
+- split()
+
+O método Java String split() é usado para dividir a string usando uma determinada expressão. Existem duas variantes do método split().
+
+1. split(String regex): Este método divide a string usando a expressão regex fornecida e retorna um array de string.
+2. split(String regex, int limit): Este método divide a string usando determinada expressão regex e retorna a matriz da 
+string, mas o elemento da matriz é limitado pelo limite especificado. Se o limite especificado for 2, o método retornará 
+uma matriz de tamanho 2.
+
+- contains(CharSequence s)
+
+Os métodos Java String contains() verificam se a string contém a sequência de caracteres especificada ou não. Este método 
+retornará true se a string contiver a sequência de caracteres especificada, caso contrário, retornará false.
+
+
+- length()
+
+O método Java String length() retorna o comprimento da string
+
+
+- replace()
+
+
+
+## Referências
 
 - https://www.devmedia.com.br/construtores-em-java-primeiros-passos/28618
 - https://sites.google.com/view/javacommiza/home/capitulo-01/criando-objetos/blocos-inicializadores-de-instancia
@@ -905,3 +1050,7 @@ e trtá-la.
 - https://www.devmedia.com.br/entendendo-interfaces-em-java/25502
 - https://blog.grancursosonline.com.br/poo-principal-conceito-de-polimorfismo/#:~:text=Em%20rela%C3%A7%C3%A3o%20ao%20polimorfismo%2C%20o,os%20m%C3%A9todos%20sobrescritos%20(overriding).
 - https://javarevisited.blogspot.com/2015/12/10-points-about-instanceof-operator-in-java-example.html#axzz7kcFpEWq1
+- http://www.linhadecodigo.com.br/artigo/3667/classes-wrappers-em-java.aspx
+- https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html#:~:text=Autoboxing%20is%20the%20automatic%20conversion,way%2C%20this%20is%20called%20unboxing.
+- https://docs.oracle.com/javase/7/docs/api/java/lang/String.html
+- https://www.digitalocean.com/community/tutorials/java-string
