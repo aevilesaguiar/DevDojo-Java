@@ -765,6 +765,7 @@ As exceções Unchecked não é necessário fazer o tratamento, e nós podemos c
 
 
 ![](../../Users/aesilva/AppData/Local/Temp/Excecoes_Java2.jpg)
+
 ![](.README_images/03f3e618.png)
 As exceções RunTimeException são exceções que o desenvovedor deveria ter tratado
 
