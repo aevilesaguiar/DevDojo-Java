@@ -812,6 +812,88 @@ java.lang.RuntimeException (exceção em tempo de execução).
 
 Quando  utilizar try/catch ou throws
 
+Notas:
+
+Exceções mais genéricas dentro de um catch tem que vir sempre no final. Exemplo RuntimeException ela é muito genérica
+
+IOException é a exceção mais genérica da linha de FileNotFoundException
+
+- MultiCatch em linha, eu posso incluir multiplos catchs , ou seja posso incluir exceções que não estão na mesma linha de herança
+dentro de um mesmo catch separado via |(pipe). Isso só pode ser feito com classes com linhas de herança diferente.
+Ex: 
+
+         try {
+              talvezLanceException();
+         } catch (SQLException | IOException e) {
+               throw new RuntimeException(e);
+          }
+
+## Try with Resources
+
+
+O que é: um recurso sintático do Java para uso seguro de recursos de forma segura.
+
+Objetivo: garantir que recursos escassos - como conexões com o banco de dados, referências a arquivos, conexões de rede  
+sejam devidamente fechadas após o uso, mesmo num cenário excepcional.
+
+Funcionamento: os recursos declarados no try (entre os parêntesis) devem implementar a interface AutoCloseable e terão seu 
+método close() automaticamente chamado ao final do bloco try.
+
+Uso simples:
+
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+        return br.readLine();
+        }
+
+Benefícios:
+
+Substitui o tratamento manual de exceções:
+Menos propenso a erros de codificação, quando o programador não sabe ou esquece de executar todo o tratamento necessário.
+Evita vazamento de recursos, quando o programador esquece de fechá-lo ou não trata corretamente uma situação excepcional.
+Menos código boilerplate:
+Facilita e agiliza a codificação.
+Menos chance de esquecer algo.
+Menos código significa menos bugs e menos coisas para dar manutenção.
+
+
+O try com recursos se resposnbiliza de fechar a conexão da variavel de referencia.
+
+A regra é você só pode colocar objetos /variaveis de referencia dentro do Try with resources que implementem a 
+interface Closeble ou Readable
+
+        try (Reader reader= new BufferedReader(new FileReader("teste.txt"))){
+
+        }catch (IOException e){
+
+        }
+
+## Criar as póprias Exceções
+
+Quando estamos trabalhando em um software, criar suas próprias exceptions pode ser muito vantajoso. Primeiro, porque não 
+há uma confusão sobre o que são exceções da linguagem Java, ou de alguma biblioteca terceira, com exceções do sistema.
+
+Outro ponto interessante, é que poderíamos adicionar construtores que armazenam determinada informação que será útil 
+para gerar logs ou mensagens de erro ao usuário.
+
+Por fim, podemos gerar exceptions que tornem mais claros determinados tipos de erro, como por exemplo, objetos não 
+preenchidos corretamente, objetos nulos, validações incorretas.
+
+Ex de uma instrução customizada:
+
+        public class LoginException extends Exception {
+        
+        
+        }
+
+Exceções customizadas são exceções que você pode criar e definir o tratamento delas baseados na lógica de negócio.
+
+- Exceções e regras de sobrescritas
+quando você está sobrescrevendo um método você não é brigado a declarar as mesmas exceções que aquele método 
+está declarando, por que a funcionalidade da sobrescrita pode ser diferente e não lance exceção. Mas eu posso colocar uma nova exceção
+e trtá-la.
+- Você não pode declarar nenhuma exceção do tipo cheched que não foi declarada no método original.
+
+
 
 ## Referencias
 
