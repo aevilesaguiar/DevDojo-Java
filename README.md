@@ -1037,8 +1037,85 @@ retornará true se a string contiver a sequência de caracteres especificada, ca
 O método Java String length() retorna o comprimento da string
 
 
-- replace()
+- replace() (substituir)
 
+O método Java String replace() é usado para substituir uma parte específica da string por outra string. Existem quatro variantes do método replace().
+
+1. replace(char oldChar, char newChar): Este método substitui todas as ocorrências de oldChar por newChar na string.
+2. replace(CharSequence target, CharSequence replacement): este método substitui cada literal de destino por literais de substituição na string.
+3. replaceAll(String regex, String replacement): este método substitui todas as ocorrências de correspondências de substring com regex especificado com substituição especificada na string.
+4. replaceFirst(String regex, String replacement): este método substitui a primeira ocorrência da substring que corresponde ao regex especificado com a substituição especificada na string.
+
+- format()
+
+O método Java Sting format() é usado para formatar a string. Existem duas variantes do método java String format().
+
+1. format(Locale l, String format, Object… args): este método formata a string usando o local, o formato da string e os argumentos especificados.
+2. format(String format, Object… args): este método formata a string usando o formato de string e os argumentos especificados.
+
+
+- substring()
+
+Este método retorna uma parte da string com base nos índices especificados.
+
+- Concatenação de strings
+
+A concatenação de strings é uma operação muito básica em java. String pode ser concatenada usando o operador “+” ou usando o concat()método.
+
+
+## Diferenças entre String, StringBuilder e StringBuffer em Java
+
+A classe StringBuilder faz parte do pacote java. lang. Essa classe permite criar e manipular dados de Strings dinamicamente, 
+ou seja, podem criar variáveis de String modificáveis.
+
+Você já deve ter lido ou ouvido em algum lugar algo sobre: “String são imutáveis”, ou seja, você não pode mudar seu valor 
+após a primeira atribuição. Então você se pergunta: se Strings são imutáveis, então porque eu consigo concatenar vários 
+valores a uma String, tornando-a diferente da original?
+
+Acontece que na verdade você não está “concatenando” nada, e sim criando um novo objeto em memória. Cada vez que você 
+acha que está concatenando uma String com outra, você está criando diversos objetos distintos em memória, e as Strings 
+“antigas” perdem referência, mas continuam lá.
+
+- StringBuilder vs String
+
+Como você já deve ter percebido, a String não deve ser usada para concatenação de outras Strings ou caracteres. Na seção 
+acima apenas falamos sobre o quão prejudicial pode ser o seu uso, mas agora vamos comparar tal uso com o StringBuilder, 
+que é a maneira correta de concatenar Strings ou caracteres.
+
+Sem dúvida a performance do StringBuilder em detrimento do String comum é exponencialmente melhor quando precisamos concatenar valores.
+
+- StringBuilder vs StringBuffer
+
+Ambos são bem mais rápidos para concatenação de valores do que a String comum e fazem exatamente a mesma função. 
+A principal diferença é que o StringBuffer é sincronizado, enquanto que o outro não. Assim, você garante a consistência 
+do seu código quando há diversas threads lendo ou modificando a mesma String. Para esses casos, o ideal é usar o StringBuffer.
+
+A principal diferença é que o StringBuffer é sincronizado, enquanto que o outro não. Assim, você garante a consistência 
+do seu código quando há diversas threads lendo ou modificando a mesma String. Para esses casos, o ideal é usar o StringBuffer.
+
+## Serialização
+
+Serialização é a técnica que permite transformar o estado de um objeto em uma sequência bytes.
+
+Com a serialização é possível salvar objetos em arquivos de dados. Já a desserialização permite que os objetos persistidos 
+em arquivos possam ser recuperados e seus valores recriados na memória.
+
+Serialização é pegar um objeto em memória e persistir.
+
+
+![](../../Users/aesilva/AppData/Local/Temp/file_io.png)
+inputStream = quando está lendo
+outputStream = escrevendo
+
+Quando deserializamos  não existe uma chamada para o construtor, ele usa o arquivo
+
+Quando eu quero que um atributo seja ignorado eu uso a palavra transient:
+private transient String password;
+
+No intellijei para serializar eu faço: ctrl+shift+a-> incluir Serializable.
+
+Atributos statics não pertencem ao objeto, pertencem a classe, eles não são serializados. 
+Para não serializar um atributo usamos transiente.
 
 
 ## Referências
@@ -1054,3 +1131,4 @@ O método Java String length() retorna o comprimento da string
 - https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html#:~:text=Autoboxing%20is%20the%20automatic%20conversion,way%2C%20this%20is%20called%20unboxing.
 - https://docs.oracle.com/javase/7/docs/api/java/lang/String.html
 - https://www.digitalocean.com/community/tutorials/java-string
+- https://www.devmedia.com.br/diferencas-entre-string-stringbuilder-e-stringbuffer-em-java/29865

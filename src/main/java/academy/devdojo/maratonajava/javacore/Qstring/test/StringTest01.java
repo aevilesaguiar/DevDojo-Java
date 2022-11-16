@@ -19,7 +19,7 @@ public class StringTest01 {
         //não é interessante ciar string dessa forma com new
         String nome3 = new String("Willian");//1-criando uma variavel de referencia, 2- objetos do tipo string , 3- -uma string no pool de string
         System.out.println(nome2==nome3);
-        System.out.println(nome==nome3);
+        System.out.println(nome==nome3.intern());//pegar a referencia do pool de string intern()
 
 
     }

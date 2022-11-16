@@ -1,4 +1,4 @@
-package academy.devdojo.maratonajava.javacore.Qstring.test.examples;
+package academy.devdojo.maratonajava.javacore.Qstring.examples;
 
 public class StringCompareToExample {
     public static void main(String[] args) {
