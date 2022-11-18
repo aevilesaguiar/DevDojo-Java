@@ -764,7 +764,7 @@ As exceções Unchecked não é necessário fazer o tratamento, e nós podemos c
 
 
 
-![](../../Users/aesilva/AppData/Local/Temp/Excecoes_Java2.jpg)
+
 
 ![](.README_images/03f3e618.png)
 As exceções RunTimeException são exceções que o desenvovedor deveria ter tratado
@@ -1118,6 +1118,153 @@ Atributos statics não pertencem ao objeto, pertencem a classe, eles não são s
 Para não serializar um atributo usamos transiente.
 
 
+## Equals
+
+Regrinhas do método equals
+
+Indica se algum outro objeto é "igual" a este.
+
+O método equals implementa uma relação de equivalência em referências de objetos não nulos:
+
+- É reflexivo: para qualquer valor de referência não nulo x, x.equals(x) deve retornar verdadeiro.
+- É simétrico: para quaisquer valores de referência não nulos x e y, x.equals(y) deve retornar verdadeiro se e
+somente se y.equals(x) retornar verdadeiro.
+- É transitivo: para quaisquer valores de referência não nulos x, y e z, se x.equals(y) retornar verdadeiro e y.equals(z) 
+retornar verdadeiro, então x.equals(z) deve retornar verdadeiro.
+- É consistente: para quaisquer valores de referência não nulos xey, várias invocações de x.equals(y) consistentemente 
+retornam verdadeiro ou consistentemente retornam falso, desde que nenhuma informação usada em comparações iguais nos 
+objetos seja modificada.
+- Para qualquer valor de referência não nulo x, x.equals(null) deve retornar false.
+
+## Hash code
+
+Hash code vai ser um número que será gerado de preferencia ele deve ser único para objetos,
+
+Simplificando, hashCode() retorna um valor inteiro, gerado por um algoritmo de hash.
+
+Objetos que são iguais (de acordo com seus equals() ) devem retornar o mesmo código hash. Objetos diferentes não precisam retornar códigos hash diferentes.
+
+O contrato geral de hashCode() declara:
+
+- Sempre que for invocado no mesmo objeto mais de uma vez durante a execução de um aplicativo Java, hashCode() deve retornar 
+consistentemente o mesmo valor, desde que nenhuma informação usada em comparações de igualdade no objeto seja modificada. 
+Esse valor não precisa ficar consistente de uma execução de um aplicativo para outra execução do mesmo aplicativo.
+- Se dois objetos forem iguais de acordo com o método equals(Object) , chamar o método hashCode() em cada um dos dois objetos 
+deve produzir o mesmo valor.
+- Se dois objetos forem desiguais de acordo com o método equals(java.lang.Object) , chamar o método hashCode em cada um dos
+ dois objetos não precisa produzir resultados inteiros distintos. No entanto, os desenvolvedores devem estar cientes de que 
+ produzir resultados inteiros distintos para objetos desiguais melhora o desempenho das tabelas de hash.
+
+  
+
+## Coleções
+
+Coleções se enquadram em dois grupos Ordered(ordenado o java lembra a odem) e sorted(a interação da ordenado a partir de 
+algo pre definido).
+
+Complexidade Big O: a notação Big O descreve a complexidade do seu código usando termos algébricos.
+Geralmente usado para estruturas de dados.
+
+![](.README_images/7318e01c.png)
+![](.README_images/f88cdfe3.png)
+
+- Collection
+
+Uma coleção (collection) é uma estrutura de dados que serve para agrupar muitos elementos em uma única unidade, estes 
+elementos precisão ser Objetos, pode ter coleções homogêneas e heterogêneas, normalmente utilizamos coleções heterogêneas 
+de um tipo especifico.
+
+O núcleo principal das coleções é formado pelas interfaces da figura a abaixo, essas interfaces permitem manipular a 
+coleção independente do nível de detalhe que elas representam.
+
+
+![](../../Users/aesilva/AppData/Local/Temp/2020-05-16-java-collection-01.png)
+
+Temos quatro grandes tipos de coleções: Set (conjunto), List (lista), Queue (fila) e Map (mapa), a partir dessas interfaces, 
+temos muitas subclasses concretas que implementam varias formas diferentes de se trabalhar com cada coleção.
+
+Todas as interfaces e classes são encontradas dentro do pacote (package) java.util, embora a interface Map não ser 
+filha direta da interface Collection ela também é considerada uma coleção devido a sua função.
+
+- java.util.Collection
+
+A interface Collection define diversos métodos que são implementados pelas classes que representam coleções, dentro das 
+coleções são adicionados Objetos também chamados de elementos.
+
+Alguns dos métodos que devem ser implementados por todas as subclasses de Collection:
+
+* add(Object e) – Adiciona um Objeto dentro da coleção.
+* addAll(Collection c) – Adiciona uma coleção de Objetos dentro da coleção.
+* contains(Object o) – Verifica se um Objeto está dentro da coleção.
+* clear() - Remove todos os Objetos da coleção. 
+* isEmpty() - Retorna um boolean informando se a coleção está vazia ou não.
+* remove(Object o) – Remove um Objeto da coleção.
+* size() - Retorna o tamanho da coleção.
+* toArray() - Converte uma coleção em um vetor.
+
+
+A imagem a seguir mostra em azul as principais filhas da classe Collection, com exceção da interface Map, também mostra 
+em verde as classes concretas mais utilizadas que implementam as interfaces.
+
+
+![](../../Users/aesilva/AppData/Local/Temp/2020-05-16-java-collection-02.png)
+
+- java.util.Set
+
+A interface Set é uma coleção do tipo conjunto de elementos. As características principais deste tipo de coleção são: 
+os elementos não possuem uma ordem de inserção e não é possível ter dois objetos iguais.
+
+- java.util.Queue
+  A interface Queue é uma coleção do tipo fila. As principais características deste tipo de coleção são: a ordem que os 
+  elementos entram na fila é a mesma ordem que os elementos saem da fila (FIFO - First In First Out), podemos também criar 
+  filas com prioridades.
+
+- java.util.Map
+
+A interface Map é uma coleção do tipo mapa. As principais características deste tipo de coleção são: os objetos são 
+armazenados na forma de chave / valor, não pode haver chaves duplicadas dentro do mapa.
+
+Para localizar um objeto dentro do mapa é necessário ter sua chave ou percorra o mapa por completo.
+
+- java.util.List
+
+A interface List é uma coleção do tipo lista, em que a ordem dos elementos é dado através de sua inserção dentro da lista.
+
+
+
+- Um pouco sobre Generics
+
+Usualmente, não há uso interessante uma lista com vários tipos de objetos misturados. Por este motivo, podemos utilizar 
+uma nova estrutura criada a partir do Java 5.0 chamada de Generics.
+
+A estrutura de Generics serve para restringir as listas a um determinado tipo de objetos (e não qualquer Object)
+
+## Comparable e comparator
+
+- Comparable: Se você tem controle sobre o código-fonte da classe, você pode implementar essa interface nela para definir 
+uma estratégia de ordenação padrão. Exemplo: se você tem uma classe de Pessoa, você pode implementar Comparable nela 
+definindo uma ordenação pelo nome, pois é um critério muito utilizado para ordenar Pessoas, logo, pode ser o padrão (natural).
+
+- Comparator: É útil quando você precisa criar ordenações personalizadas. Você pode ter uma classe com uma estratégia de 
+ordenação padrão (implementando Comparable nela) e em situações que forem necessárias ordenar de forma diferente, criar n 
+classes que implementam Comparator para atender a esses casos que a ordenação padrão da classe não atenda. Seguindo o exemplo
+da classe Pessoa que ordena por padrão pelo nome, pode acontecer que em uma situação específica você precise ordenar, 
+por exemplo, Pessoas por idade decrescente e pelo nome da mãe. Aí você implementa um Comparator para esta classe.
+
+O Comparable permite que você diga uma regra de comparação para a classe que implementar essa interface, como uma espécie 
+de regra padrão ou regra oficial, enquanto que se você quiser fugir dessa regra padrão, você pode criar suas classes 
+comparadoras, que vão extender a classe Comparator fazendo cada uma a sua própria regra.
+
+Resumo:
+
+- Você tem uma estratégia padrão de ordenação e pode alterar a classe? Comparable é uma boa opção. é implementtada
+na classe.
+
+- Você precisa definir várias estratégias de ordenação ou não tem condições de definir a estratégia 
+padrão de ordenação na classe porquê não pode alterá-la? Comparator. Comparator você não precisa implementar direto
+na classe
+
+
 ## Referências
 
 - https://www.devmedia.com.br/construtores-em-java-primeiros-passos/28618
@@ -1132,3 +1279,6 @@ Para não serializar um atributo usamos transiente.
 - https://docs.oracle.com/javase/7/docs/api/java/lang/String.html
 - https://www.digitalocean.com/community/tutorials/java-string
 - https://www.devmedia.com.br/diferencas-entre-string-stringbuilder-e-stringbuffer-em-java/29865
+- https://www.baeldung.com/java-hashcode
+- http://www.universidadejava.com.br/java/java-collection/
+- 

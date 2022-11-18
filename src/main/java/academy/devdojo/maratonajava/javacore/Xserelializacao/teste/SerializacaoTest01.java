@@ -18,9 +18,6 @@ public class SerializacaoTest01 {
        // serializar(aluno);
         deserializar();
 
-
-
-
     }
 
     private static void serializar(Aluno aluno){
