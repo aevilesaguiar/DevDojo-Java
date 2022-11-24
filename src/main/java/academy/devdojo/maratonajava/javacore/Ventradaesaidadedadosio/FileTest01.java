@@ -14,6 +14,7 @@ public class FileTest01 {
         File file2= new File("C:\\JAVA\\DevDojo-Jva\\arquivo\\a.txt");
         File file3= new File("C:\\JAVA\\DevDojo-Jva\\arquivo\\b.txt");
 
+        //teste
         try {
 
            boolean isCreated = file2.createNewFile();
