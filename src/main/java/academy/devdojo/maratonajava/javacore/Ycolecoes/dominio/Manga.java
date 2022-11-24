@@ -60,13 +60,13 @@ public class Manga implements Comparable<Manga>{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Manga mangas = (Manga) o;
-        return Double.compare(mangas.preco, preco) == 0 && id.equals(mangas.id) && nome.equals(mangas.nome);
+        Manga manga = (Manga) o;
+        return id.equals(manga.id) && nome.equals(manga.nome);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, preco);
+        return Objects.hash(id, nome);
     }
 
     @Override

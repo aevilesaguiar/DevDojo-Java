@@ -1265,6 +1265,102 @@ padrão de ordenação na classe porquê não pode alterá-la? Comparator. Compa
 na classe
 
 
+## Interface Funcional 
+
+Interface funcional é uma interface onde você tem apenas um método abstrato. E outros métodos
+
+A lambda tem o parametro e o corpo(expressão)
+boolean test (Car car);
+//(parametro) -> <expressão>
+Lambdas são funções , elas são anonimas
+O seu objetivo é ter um método conciso
+
+Qualquer interface funcional podemos usar lambdas.
+
+## Regex
+
+Expressão Regular ou Regular Expression, bem como a abreviação RegEx, é um mecanismo poderoso utilizado para manipulação 
+de informações baseadas em cadeias de caracteres, permitindo identificar, de maneira precisa e flexível, dados de interesse
+por meio de análises de padrões. A pesquisa ou análise de padrões objetiva criar recursos com a finalidade de facilitar a 
+localização e recuperação de informações.
+
+As principais finalidades quando se utiliza expressões regulares incluem a necessidade de realizar pesquisas a partir da 
+identificação de padrões, assim como a validação e substituição de cadeias de caracteres por meio da análise de padrões.
+
+A definição e uso de expressões regulares em sistemas computacionais torna possível o acesso rápido e direto a dados 
+desejados, agilizando os processos de busca e extração de informações.
+
+A tecnologia Java possui, em seu pacote java.util.regex, as três principais classes para a criação e execução de algoritmos 
+que necessitem de expressões regulares. Abaixo, segue uma pequena descrição dessas classes que serão abordadas com mais 
+detalhes no decorrer deste artigo:
+
+- java.util.regex.Pattern: A classe Pattern é responsável pela representação do padrão a ser compilado e utilizado nas 
+pesquisas. Para a sua utilização, deve-se obter uma referência de Pattern por meio do método estático compile(String padrao).
+
+Pattern pattern = Pattern.compile(“teste”);
+
+- java.util.regex.Matcher: A classe Matcher é responsável pelas operações de pesquisa e análise de cadeias de caracteres 
+de entrada, possibilitando a execução de buscas, retorno de resultados, extração de índices de informações e dados agrupados. 
+Para a sua utilização, deve-se obter uma referência de Matcher por meio do método matcher(String texto) de uma 
+referência de Pattern.
+
+Matcher matcher = pattern.matcher(“Executando um teste de RegEx…”);
+
+- java.util.regex.PatternSyntaxException: A classe PatternSyntaxException permite o controle e tratamento de exceções 
+lançadas durante o uso de expressões regulares. Através da verificação desse tipo de exceção, é possível ter um controle 
+maior sobre os erros gerados a partir de consultas quando a sintaxe do padrão informada à aplicação é inválida.
+
+O método find(), da classe Matcher, é responsável pela verificação da existência de padrões na cadeia de caracteres 
+informada, já os métodos start() e end() indicam, respectivamente, as posições de início e término quando uma parte do 
+texto informado apresenta o padrão pesquisado e, por fim mas não menos importante, o método group(), responsável pela 
+extração do trecho da cadeia de caractere que atende à expressão regular validada.
+
+Para criar uma expressão regular é necessário informar caracteres especiais usados no padrão da expressão. 
+Esses caracteres são conhecidos como metacaracteres, indicando a ocorrência de números, letras entre outros caracteres 
+no texto. Na Figura 1 são exibidos alguns caracteres utilizados para construir a expressão regular.
+
+![](../../Users/aesilva/AppData/Local/Temp/Expressoes_Regulares1.jpg)
+
+- Método matches
+O método matches especifica uma expressão regular e localiza o conteúdo do objeto String em que está sendo aplicada 
+essa expressão. Para saber se essa correspondência foi atendida ou não, é retornado um valor booleano (true ou false).
+
+- Modificadores
+  Um modificador é um caractere adicionado depois de um o delimitador final, onde acaba mudando o jeito como a função 
+  irá tratar a expressão. Abaixo estão relacionados os modificadores que podem ser usados:
+
+(?i) - Ignora maiúsculas de minúsculas.
+(?m) - Trabalha com multilinhas.
+(?s) - Faz com que o caractere encontre novas linhas.
+(?x) - Permite inclusão de espaços e comentários.
+
+- Quantificadores
+
+Em alguns momentos é preciso fazer com que alguns caracteres se repitam, sendo por esse motivo que os metacaracteres 
+precisam ter um controlador, conhecido como quantificador. O quantificador é um caractere que consegue informar quantas 
+vezes um metacaractere pode ser repetido.
+
+![](../../Users/aesilva/AppData/Local/Temp/Expressoes_Regulares2.jpg)
+
+- Metacaracteres de fronteira
+
+Esses metacaracteres definem se a String começa ou termina com um determinado padrão,
+![](../../Users/aesilva/AppData/Local/Temp/Expressoes_Regulares3.jpg)
+
+- Agrupadores
+  Tem como objetivo agrupar conjuntos de caracteres que tenham alguma das ações descritas
+![](../../Users/aesilva/AppData/Local/Temp/Expressoes_Regulares4.jpg)
+
+
+- https://regexr.com/ 
+
+## Resource Bundle
+
+Um Resource Bundle(pacote configurável) de recursos é um arquivo Java .properties que contém dados específicos do código do idioma . [1] 
+É uma forma de internacionalizar um aplicativo Java tornando o código independente da localidade.
+
+![](../../Users/aesilva/AppData/Local/Temp/resource-bundle-1.png)
+
 ## Referências
 
 - https://www.devmedia.com.br/construtores-em-java-primeiros-passos/28618
@@ -1281,4 +1377,4 @@ na classe
 - https://www.devmedia.com.br/diferencas-entre-string-stringbuilder-e-stringbuffer-em-java/29865
 - https://www.baeldung.com/java-hashcode
 - http://www.universidadejava.com.br/java/java-collection/
-- 
+- https://caiosantesso.dev/livro-de-receitas-java-regex/
