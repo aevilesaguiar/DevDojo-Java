@@ -1361,6 +1361,24 @@ Um Resource Bundle(pacote configurável) de recursos é um arquivo Java .propert
 
 ![](../../Users/aesilva/AppData/Local/Temp/resource-bundle-1.png)
 
+
+## Pacote NIO
+
+Path(Interface) foi criada para substituir a File.
+
+Para pegar um Path você vai precisar sa classe Paths.
+E através das Paths  você vai utilizar a Files, para trabalhar com arquivo.
+
+Path substituto da File;
+
+![](.README_images/27b1c3d4.png)
+
+
+
+
+
+
+
 ## Referências
 
 - https://www.devmedia.com.br/construtores-em-java-primeiros-passos/28618
