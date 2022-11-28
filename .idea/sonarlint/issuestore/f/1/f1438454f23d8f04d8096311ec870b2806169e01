@@ -1,0 +1,19 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(—”£üÿÿÿÿÿ
+T
+java:S1854(">Remove this useless assignment to local variable "isModified".(ø×§ß
+R
+java:S1854'"<Remove this useless assignment to local variable "isCreate".(ïÁ¬
+W	java:S899'"BDo something with the "boolean" value returned by "createNewFile".(ïÁ¬
+C
+java:S1481'"-Remove this unused "isCreate" local variable.(ïÁ¬
+Y	java:S899("DDo something with the "boolean" value returned by "setLastModified".(ø×§ß
+E
+java:S1481("/Remove this unused "isModified" local variable.(ø×§ß
+Z	java:S1062"9Replace this use of System.out or System.err by a logger.(¡÷²ïûÿÿÿÿ8ÿ¤ÒøÊ0
+Z	java:S1063"9Replace this use of System.out or System.err by a logger.(î»ÓÈýÿÿÿÿ8¿ŽÙøÊ0
+U	java:S1064"9Replace this use of System.out or System.err by a logger.(ãÆ‚8ÚŽÚøÊ0
+Z	java:S1065"9Replace this use of System.out or System.err by a logger.(¹»ûÌùÿÿÿÿ8Ç¡ÚøÊ0
+R
+java:S1128
+"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿ8ÛŽÚøÊ0

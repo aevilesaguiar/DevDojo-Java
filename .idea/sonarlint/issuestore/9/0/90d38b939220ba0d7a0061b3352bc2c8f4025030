@@ -1,0 +1,19 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(—”£üÿÿÿÿÿ
+[
+java:S1854"@Remove this useless assignment to local variable "pathAbsoluto".(Êø›°ıÿÿÿÿ
+[
+java:S1854"@Remove this useless assignment to local variable "pathRelativo".(‡¯¡ıÿÿÿÿ
+‰
+java:S1130"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(œû¿Ø8òÀŸõÊ0
+L
+java:S1481"1Remove this unused "pathRelativo" local variable.(‡¯¡ıÿÿÿÿ
+L
+java:S1481"1Remove this unused "pathAbsoluto" local variable.(Êø›°ıÿÿÿÿ
+M	java:S106"9Replace this use of System.out or System.err by a logger.(º«Õ-
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(¯Ò“Ôÿÿÿÿÿ8üÀŸõÊ0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(¥‘Ä8Í« õÊ0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(½Ø¹òøÿÿÿÿ8Î« õÊ0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(Ø´Ãúÿÿÿÿ8çû¤õÊ0
+T	java:S106 "9Replace this use of System.out or System.err by a logger.(üè¢*8™ì©õÊ0
+Z	java:S106!"9Replace this use of System.out or System.err by a logger.(ÆŒÄÿÿÿÿÿ8šì©õÊ0

@@ -1375,7 +1375,9 @@ Path substituto da File;
 
 
 
+## Coleções
 
+![](.README_images/8a5b15ed.png)
 
 
 
