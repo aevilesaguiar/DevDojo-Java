@@ -1,0 +1,13 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(›Ğµµúÿÿÿÿ
+_
+java:S4143"DVerify this is the key that was intended; it was already set before.(˜Ñ•Ãÿÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(µˆœÑ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ôçôºüÿÿÿÿ
+J
+java:S2864"4Iterate over the "entrySet" instead of the "keySet".(ÒÊô
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Ü’Šâ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Êô²ºúÿÿÿÿ
+S	java:S106""9Replace this use of System.out or System.err by a logger.(×´İüÿÿÿÿ
+I
+java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ
