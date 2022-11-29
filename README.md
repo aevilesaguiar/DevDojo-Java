@@ -1379,6 +1379,90 @@ Path substituto da File;
 
 ![](.README_images/8a5b15ed.png)
 
+## Generics 
+
+Generics em java está associado com a idéia de criar métodos e classes genéricas que podem ser declaradas uma vez, mas 
+usadas com vários tipos de dados diferentes. Os algoritmos genéricos podem ser simples ou complexos, desde que atendam 
+aos requisitos especificados.
+
+
+WildCards (curingas) em java.
+
+O ponto de interrogação (?) é conhecido como curinga na programação genérica. Representa um tipo desconhecido. 
+O curinga pode ser usado em diversas situações, como tipo de parâmetro, campo ou variável local; às vezes como um tipo 
+de retorno. Ao contrário dos arrays, diferentes instanciações de tipo genérico não são compatíveis entre si, 
+nem mesmo explicitamente. Essa incompatibilidade pode ser amenizada pelo curinga se ? é usado como um parâmetro de tipo 
+real.
+
+1. Tipos de curingas em Java
+
+
+Curingas de limites superiores:
+
+Esses curingas podem ser usados quando você deseja relaxar as restrições de uma variável. Por exemplo, digamos que você 
+queira escrever um método que funcione em List < Integer >, List < Double > e List < Number >, você pode fazer isso 
+usando um curinga de limite superior.
+
+Para declarar um curinga de limite superior, use o caractere curinga ('?'), seguido pela palavra-chave extends, 
+seguida por seu limite superior.
+
+public static void add(List<? extends Number> list)
+
+
+
+
+## Inner Class
+
+Inner Class é basicametne uma classe dentro da outra.
+
+Java inner class (Classe interna ) ou classe aninhada é uma classe que é declarada dentro da classe ou interface.
+
+Usamos classes internas para agrupar classes e interfaces logicamente em um só lugar para serem mais legíveis e fáceis de manter.
+
+Além disso, ele pode acessar todos os membros da classe externa, incluindo métodos e membros de dados privados.
+
+- Vantagem das classes internas do Java
+  Existem três vantagens das classes internas em Java. Eles são os seguintes:
+
+
+1. Classes aninhadas representam um tipo particular de relacionamento que pode acessar todos os membros 
+(membros de dados e métodos) da classe externa, incluindo private.
+2. As classes aninhadas são usadas para desenvolver um código mais legível e de fácil manutenção porque agrupa classes 
+e interfaces logicamente em um só lugar.
+3. Otimização de código : requer menos código para escrever.
+
+
+- Necessidade da classe Java Inner
+ Às vezes, os usuários precisam programar uma classe de forma que nenhuma outra classe possa acessá-la. Portanto, 
+seria melhor se você o incluísse em outras classes.
+
+Se todos os objetos de classe fizerem parte do objeto externo, será mais fácil aninhar essa classe dentro da classe externa. 
+Dessa forma, toda a classe externa pode acessar todos os objetos da classe interna.
+
+
+- Diferença entre classe aninhada e classe interna em Java
+
+Uma classe interna faz parte de uma classe aninhada. Classes aninhadas não estáticas são conhecidas como classes internas.
+
+
+##  Class Anonimos
+
+Classes Anonimas são classes que vão existir brevemente por um período de tempo no código, e que não podem ser
+reutilizadas em nenhum outro lugar.
+
+
+É uma classe interna sem um nome e para a qual apenas um único objeto é criado. Uma classe interna anônima pode ser 
+útil ao criar uma instância de um objeto com certos “extras”, como métodos de sobrecarga de uma classe ou interface, 
+sem ter de realmente criar uma subclasse de uma classe.
+
+
+Classes internas anônimas são úteis para escrever classes de implementação para interfaces de ouvinte em programação gráfica.
+
+As classes internas anônimas são criadas principalmente de duas maneiras:
+
+Classe (pode ser abstrata ou concreta)
+Interface
+
 
 
 ## Referências
@@ -1398,3 +1482,7 @@ Path substituto da File;
 - https://www.baeldung.com/java-hashcode
 - http://www.universidadejava.com.br/java/java-collection/
 - https://caiosantesso.dev/livro-de-receitas-java-regex/
+- https://pt.stackoverflow.com/questions/243874/qual-a-diferen%C3%A7a-entre-arrays-aslist-e-list-of
+- https://www.geeksforgeeks.org/wildcards-in-java/
+- https://pt.stackoverflow.com/questions/371136/java-pra-que-serve-o-e-tipos-gen%C3%89ricos
+- https://mkyong.com/java8/java-8-predicate-examples/-> terminar exercicios
