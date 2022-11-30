@@ -1409,8 +1409,6 @@ seguida por seu limite superior.
 public static void add(List<? extends Number> list)
 
 
-
-
 ## Inner Class
 
 Inner Class é basicametne uma classe dentro da outra.
@@ -1464,6 +1462,38 @@ Classe (pode ser abstrata ou concreta)
 Interface
 
 
+## method Reference
+
+Você usa expressões lambda para criar métodos anônimos. Às vezes, no entanto, uma expressão lambda não faz nada além de
+chamar um método existente. Nesses casos, geralmente é mais claro referir-se ao método existente pelo nome. Referências
+de método permitem que você faça isso; são expressões lambda compactas e fáceis de ler para métodos que já têm um nome.
+
+Java fornece um novo recurso chamado method reference no Java 8. O method reference é usado para referir-se ao
+método da interface funcional. É uma forma compacta e fácil de expressão lambda. Sempre que estiver usando a expressão
+lambda apenas para referir um método, você pode substituir sua expressão lambda pelo method reference.
+
+- Tipos de Referências de Método
+
+Existem os seguintes tipos de referências de método em java:
+
+Referência a um método estático.
+Referência a um método de instância.
+Referência a um construtor.
+
+![](.README_images/1e7d2810.png)
+
+
+## Optinal em java
+
+A finalidade da classe Optional é fornecer uma solução de nível de tipo para representar valores opcionais em vez de 
+referências nulas.
+
+Optional foi introduzida na versão 8 do java e ela tenta evitar o NullPointerException. Ou seja facilitar que um retorno de um método
+pode ser opcional, pode não vir, ao invés de retornar null, retorna oPTIONAL. 
+
+Optional não é indicado para a passagem de parametro.
+Optional não é indicado como variavel de classe.Optional não é serializable
+Optional é indicado para utilização de retornos de método.
 
 ## Referências
 
@@ -1486,3 +1516,5 @@ Interface
 - https://www.geeksforgeeks.org/wildcards-in-java/
 - https://pt.stackoverflow.com/questions/371136/java-pra-que-serve-o-e-tipos-gen%C3%89ricos
 - https://mkyong.com/java8/java-8-predicate-examples/-> terminar exercicios
+- https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html
+- https://www.baeldung.com/java-optional
