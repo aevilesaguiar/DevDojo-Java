@@ -1495,6 +1495,46 @@ Optional não é indicado para a passagem de parametro.
 Optional não é indicado como variavel de classe.Optional não é serializable
 Optional é indicado para utilização de retornos de método.
 
+## Streams
+
+Streams é uma forma que você tem de processamento de dados que ajuda você a fazer as funcionalidades que você precisa  em uma coleção
+em uma forma mais funcional, mas declarativa.
+
+Uso de operações de streams para expressar consultas de processamento de dados complexas
+
+Em primeiro lugar, os padrões de processamento de coleções típicos são similares às operações usadas no SQL para "pesquisar" 
+(por exemplo, pesquisar a transação de maior valor) ou "agrupar" (por exemplo, agrupar todas as transações relacionadas com 
+compras de supermercado). A maioria dos bancos de dados permitem estabelecer operações como essas de forma declarativa. 
+Por exemplo, a consulta de SQL abaixo permite pesquisar a identificação da transação de maior valor: "SELECT id, MAX(value) from transactions".
+
+![](../../Users/aesilva/AppData/Local/Temp/2179048-2763412.webp)
+
+Programação com streams: primeiros passos Vamos começar com um pouco de teoria. Qual a definição de stream? De forma 
+sucinta, podemos dizer que é uma "sequência de elementos de uma fonte de dados que suporta operações de agregação". 
+Vamos dividir a definição:
+
+Sequência de elementos: Uma stream oferece uma interface para um conjunto de valores sequenciais de um tipo de elemento 
+particular. Apesar disso, as streams não armazenam elementos; estes são calculados sob demanda.
+
+Fonte de dados: As streams tomam seu insumo de uma fonte de dados, como coleções, matrizes ou recursos de E/S.
+
+Operações de agregação: As streams suportam operações do tipo SQL e operações comuns à maioria das linguagens de programação 
+funcionais, como filter, map, reduce, find, match e sorted, entre outras.
+Ainda mais, as operações das streams têm duas características fundamentais que as diferenciam das operações com coleções:
+
+Estrutura de processo: Muitas operações de stream retornam outra stream. Assim, é possível encadear operações para formar 
+um processo mais abrangente. Isto, por sua vez, permite algumas otimizações, por exemplo mediante as noções de "preguiça" 
+(laziness) e "corte de circuitos" (short-circuiting), que analisaremos mais a frente.
+
+Iteração interna: Diferentemente do trabalho com coleções, em que a iteração é explícita (iteração externa), as operações da stream realizam uma iteração por trás dos bastidores.
+Vamos ver novamente o exemplo de código acima para explicar isto. Na Figura 2 vemos a Listagem 2 com mais detalhes.
+
+![](../../Users/aesilva/AppData/Local/Temp/2179051-2763413.webp)
+
+
+https://www.oracle.com/br/technical-resources/articles/java/processing-streams-java-se-8.html
+...Continuação de stream
+
 ## Referências
 
 - https://www.devmedia.com.br/construtores-em-java-primeiros-passos/28618
@@ -1518,3 +1558,4 @@ Optional é indicado para utilização de retornos de método.
 - https://mkyong.com/java8/java-8-predicate-examples/-> terminar exercicios
 - https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html
 - https://www.baeldung.com/java-optional
+- https://www.oracle.com/br/technical-resources/articles/java/processing-streams-java-se-8.html

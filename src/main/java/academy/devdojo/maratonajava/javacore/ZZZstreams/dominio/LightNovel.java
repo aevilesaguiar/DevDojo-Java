@@ -1,5 +1,6 @@
 package academy.devdojo.maratonajava.javacore.ZZZstreams.dominio;
 
+//ligth novelsão os livros que dão origem aos animes
 public class LightNovel {
     private String title;
     private double price;

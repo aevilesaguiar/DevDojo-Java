@@ -24,6 +24,7 @@ public class StreamTest01 {
         // Comparator<T> que compara por essa chave de classificação.
         //O comparador retornado é serializável se a função especificada também for serializável.
 
+        //ordenado por titulo
         listLigthNovels.sort(Comparator.comparing(LightNovel::getTitle));
 
         List<String> tittles= new ArrayList<>();
